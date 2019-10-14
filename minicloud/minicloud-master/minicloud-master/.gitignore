@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+.project
+bundle.js
+credentials.js
+*.pem
+*.key
+*.crt
+*.pyc
+runpi.sh
+certs/
