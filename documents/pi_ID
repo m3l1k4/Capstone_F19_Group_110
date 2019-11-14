@@ -1,0 +1,4 @@
+pi@raspberrypi:~ $ hostname -I
+192.168.0.36 fd00:a84e:3fe6:66f2:3ab:7d95:da1f:5c1f 
+pi@raspberrypi:~ $ 
+
