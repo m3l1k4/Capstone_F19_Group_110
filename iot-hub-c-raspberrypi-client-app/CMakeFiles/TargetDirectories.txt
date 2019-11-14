@@ -1,0 +1,3 @@
+/home/pi/iot-hub-c-raspberrypi-client-app/CMakeFiles/rebuild_cache.dir
+/home/pi/iot-hub-c-raspberrypi-client-app/CMakeFiles/edit_cache.dir
+/home/pi/iot-hub-c-raspberrypi-client-app/CMakeFiles/app.dir
