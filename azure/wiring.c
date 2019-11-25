@@ -74,7 +74,7 @@ int readMessage(int messageId, char *payload)
 
     snprintf(payload,
              BUFFER_SIZE,
-             "{ \"deviceId\": \"Raspberry Pi - C\", \"messageId\": %d, \"temperature\": %f, \"humidity\": %f }",
+             "{ \"deviceId\": \"blueberry\", \"messageId\": %d, \"temperature\": %f, \"humidity\": %f }",
              messageId,
              temperature,
              humidity);

@@ -57,7 +57,157 @@ include CMakeFiles/app.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/app.dir/flags.make
 
-CMakeFiles/app.dir/requires:
+CMakeFiles/app.dir/main.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/main.c.o: main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/azure/iot-hub-c-raspberrypi-client-app/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/app.dir/main.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/main.c.o   -c /home/pi/azure/iot-hub-c-raspberrypi-client-app/main.c
+
+CMakeFiles/app.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/main.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/azure/iot-hub-c-raspberrypi-client-app/main.c > CMakeFiles/app.dir/main.c.i
+
+CMakeFiles/app.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/main.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/azure/iot-hub-c-raspberrypi-client-app/main.c -o CMakeFiles/app.dir/main.c.s
+
+CMakeFiles/app.dir/main.c.o.requires:
+
+.PHONY : CMakeFiles/app.dir/main.c.o.requires
+
+CMakeFiles/app.dir/main.c.o.provides: CMakeFiles/app.dir/main.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/main.c.o.provides
+
+CMakeFiles/app.dir/main.c.o.provides.build: CMakeFiles/app.dir/main.c.o
+
+
+CMakeFiles/app.dir/bme280.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/bme280.c.o: bme280.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/azure/iot-hub-c-raspberrypi-client-app/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/app.dir/bme280.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/bme280.c.o   -c /home/pi/azure/iot-hub-c-raspberrypi-client-app/bme280.c
+
+CMakeFiles/app.dir/bme280.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/bme280.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/azure/iot-hub-c-raspberrypi-client-app/bme280.c > CMakeFiles/app.dir/bme280.c.i
+
+CMakeFiles/app.dir/bme280.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/bme280.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/azure/iot-hub-c-raspberrypi-client-app/bme280.c -o CMakeFiles/app.dir/bme280.c.s
+
+CMakeFiles/app.dir/bme280.c.o.requires:
+
+.PHONY : CMakeFiles/app.dir/bme280.c.o.requires
+
+CMakeFiles/app.dir/bme280.c.o.provides: CMakeFiles/app.dir/bme280.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bme280.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/bme280.c.o.provides
+
+CMakeFiles/app.dir/bme280.c.o.provides.build: CMakeFiles/app.dir/bme280.c.o
+
+
+CMakeFiles/app.dir/wiring.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/wiring.c.o: wiring.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/azure/iot-hub-c-raspberrypi-client-app/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/app.dir/wiring.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/wiring.c.o   -c /home/pi/azure/iot-hub-c-raspberrypi-client-app/wiring.c
+
+CMakeFiles/app.dir/wiring.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/wiring.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/azure/iot-hub-c-raspberrypi-client-app/wiring.c > CMakeFiles/app.dir/wiring.c.i
+
+CMakeFiles/app.dir/wiring.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/wiring.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/azure/iot-hub-c-raspberrypi-client-app/wiring.c -o CMakeFiles/app.dir/wiring.c.s
+
+CMakeFiles/app.dir/wiring.c.o.requires:
+
+.PHONY : CMakeFiles/app.dir/wiring.c.o.requires
+
+CMakeFiles/app.dir/wiring.c.o.provides: CMakeFiles/app.dir/wiring.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wiring.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/wiring.c.o.provides
+
+CMakeFiles/app.dir/wiring.c.o.provides.build: CMakeFiles/app.dir/wiring.c.o
+
+
+CMakeFiles/app.dir/telemetry.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/telemetry.c.o: telemetry.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/azure/iot-hub-c-raspberrypi-client-app/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/app.dir/telemetry.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/telemetry.c.o   -c /home/pi/azure/iot-hub-c-raspberrypi-client-app/telemetry.c
+
+CMakeFiles/app.dir/telemetry.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/telemetry.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/azure/iot-hub-c-raspberrypi-client-app/telemetry.c > CMakeFiles/app.dir/telemetry.c.i
+
+CMakeFiles/app.dir/telemetry.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/telemetry.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/azure/iot-hub-c-raspberrypi-client-app/telemetry.c -o CMakeFiles/app.dir/telemetry.c.s
+
+CMakeFiles/app.dir/telemetry.c.o.requires:
+
+.PHONY : CMakeFiles/app.dir/telemetry.c.o.requires
+
+CMakeFiles/app.dir/telemetry.c.o.provides: CMakeFiles/app.dir/telemetry.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/telemetry.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/telemetry.c.o.provides
+
+CMakeFiles/app.dir/telemetry.c.o.provides.build: CMakeFiles/app.dir/telemetry.c.o
+
+
+CMakeFiles/app.dir/parson.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/parson.c.o: parson.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/azure/iot-hub-c-raspberrypi-client-app/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/app.dir/parson.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/parson.c.o   -c /home/pi/azure/iot-hub-c-raspberrypi-client-app/parson.c
+
+CMakeFiles/app.dir/parson.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/parson.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/azure/iot-hub-c-raspberrypi-client-app/parson.c > CMakeFiles/app.dir/parson.c.i
+
+CMakeFiles/app.dir/parson.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/parson.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/azure/iot-hub-c-raspberrypi-client-app/parson.c -o CMakeFiles/app.dir/parson.c.s
+
+CMakeFiles/app.dir/parson.c.o.requires:
+
+.PHONY : CMakeFiles/app.dir/parson.c.o.requires
+
+CMakeFiles/app.dir/parson.c.o.provides: CMakeFiles/app.dir/parson.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/parson.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/parson.c.o.provides
+
+CMakeFiles/app.dir/parson.c.o.provides.build: CMakeFiles/app.dir/parson.c.o
+
+
+# Object files for target app
+app_OBJECTS = \
+"CMakeFiles/app.dir/main.c.o" \
+"CMakeFiles/app.dir/bme280.c.o" \
+"CMakeFiles/app.dir/wiring.c.o" \
+"CMakeFiles/app.dir/telemetry.c.o" \
+"CMakeFiles/app.dir/parson.c.o"
+
+# External object files for target app
+app_EXTERNAL_OBJECTS =
+
+app: CMakeFiles/app.dir/main.c.o
+app: CMakeFiles/app.dir/bme280.c.o
+app: CMakeFiles/app.dir/wiring.c.o
+app: CMakeFiles/app.dir/telemetry.c.o
+app: CMakeFiles/app.dir/parson.c.o
+app: CMakeFiles/app.dir/build.make
+app: CMakeFiles/app.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/azure/iot-hub-c-raspberrypi-client-app/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable app"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
+
+# Rule to build all files generated by this target.
+CMakeFiles/app.dir/build: app
+
+.PHONY : CMakeFiles/app.dir/build
+
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/main.c.o.requires
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/bme280.c.o.requires
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/wiring.c.o.requires
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/telemetry.c.o.requires
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/parson.c.o.requires
 
 .PHONY : CMakeFiles/app.dir/requires
 

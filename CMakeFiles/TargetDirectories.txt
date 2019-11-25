@@ -1,0 +1,3 @@
+/home/pi/Capstone_F19_Group_110/CMakeFiles/rebuild_cache.dir
+/home/pi/Capstone_F19_Group_110/CMakeFiles/edit_cache.dir
+/home/pi/Capstone_F19_Group_110/CMakeFiles/app.dir

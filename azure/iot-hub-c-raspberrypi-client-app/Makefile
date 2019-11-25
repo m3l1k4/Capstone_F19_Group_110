@@ -123,6 +123,141 @@ app/fast:
 	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+bme280.o: bme280.c.o
+
+.PHONY : bme280.o
+
+# target to build an object file
+bme280.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bme280.c.o
+.PHONY : bme280.c.o
+
+bme280.i: bme280.c.i
+
+.PHONY : bme280.i
+
+# target to preprocess a source file
+bme280.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bme280.c.i
+.PHONY : bme280.c.i
+
+bme280.s: bme280.c.s
+
+.PHONY : bme280.s
+
+# target to generate assembly for a file
+bme280.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bme280.c.s
+.PHONY : bme280.c.s
+
+main.o: main.c.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.c.s
+.PHONY : main.c.s
+
+parson.o: parson.c.o
+
+.PHONY : parson.o
+
+# target to build an object file
+parson.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/parson.c.o
+.PHONY : parson.c.o
+
+parson.i: parson.c.i
+
+.PHONY : parson.i
+
+# target to preprocess a source file
+parson.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/parson.c.i
+.PHONY : parson.c.i
+
+parson.s: parson.c.s
+
+.PHONY : parson.s
+
+# target to generate assembly for a file
+parson.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/parson.c.s
+.PHONY : parson.c.s
+
+telemetry.o: telemetry.c.o
+
+.PHONY : telemetry.o
+
+# target to build an object file
+telemetry.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/telemetry.c.o
+.PHONY : telemetry.c.o
+
+telemetry.i: telemetry.c.i
+
+.PHONY : telemetry.i
+
+# target to preprocess a source file
+telemetry.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/telemetry.c.i
+.PHONY : telemetry.c.i
+
+telemetry.s: telemetry.c.s
+
+.PHONY : telemetry.s
+
+# target to generate assembly for a file
+telemetry.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/telemetry.c.s
+.PHONY : telemetry.c.s
+
+wiring.o: wiring.c.o
+
+.PHONY : wiring.o
+
+# target to build an object file
+wiring.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wiring.c.o
+.PHONY : wiring.c.o
+
+wiring.i: wiring.c.i
+
+.PHONY : wiring.i
+
+# target to preprocess a source file
+wiring.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wiring.c.i
+.PHONY : wiring.c.i
+
+wiring.s: wiring.c.s
+
+.PHONY : wiring.s
+
+# target to generate assembly for a file
+wiring.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wiring.c.s
+.PHONY : wiring.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -132,6 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... app"
+	@echo "... bme280.o"
+	@echo "... bme280.i"
+	@echo "... bme280.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... parson.o"
+	@echo "... parson.i"
+	@echo "... parson.s"
+	@echo "... telemetry.o"
+	@echo "... telemetry.i"
+	@echo "... telemetry.s"
+	@echo "... wiring.o"
+	@echo "... wiring.i"
+	@echo "... wiring.s"
 .PHONY : help
 
 
