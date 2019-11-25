@@ -1,0 +1,3 @@
+/home/pi/azure/CMakeFiles/rebuild_cache.dir
+/home/pi/azure/CMakeFiles/edit_cache.dir
+/home/pi/azure/CMakeFiles/app.dir

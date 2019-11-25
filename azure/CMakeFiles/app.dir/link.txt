@@ -1,0 +1,1 @@
+/usr/bin/cc  --std=c99 -g    CMakeFiles/app.dir/main.c.o CMakeFiles/app.dir/bme280.c.o CMakeFiles/app.dir/wiring.c.o CMakeFiles/app.dir/telemetry.c.o CMakeFiles/app.dir/parson.c.o  -o app -rdynamic -lwiringPi -lserializer -liothub_client -liothub_client_mqtt_transport -lumqtt -laziotsharedutil -lssl -lcrypto -lcurl -lpthread -lm -lssl -lcrypto -lcurl -lpthread -lm 
