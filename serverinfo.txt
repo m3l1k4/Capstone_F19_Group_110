@@ -1,0 +1,4 @@
+servername" capf19.database.windows.net
+admin userf19
+420blazeit!
+west us 2
