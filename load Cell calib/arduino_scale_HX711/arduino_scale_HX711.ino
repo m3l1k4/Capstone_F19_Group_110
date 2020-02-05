@@ -9,7 +9,7 @@ Thx!
 */
 
 
-#include "U8glib.h"   // Library for Oled display https://github.com/olikraus/u8glib/
+//#include "U8glib.h"   // Library for Oled display https://github.com/olikraus/u8glib/
 #include "HX711.h"    // Library for Load Cell amplifier board
 
 volatile boolean TurnDetected;  // variable used to detect rotation of Rotary encoder
