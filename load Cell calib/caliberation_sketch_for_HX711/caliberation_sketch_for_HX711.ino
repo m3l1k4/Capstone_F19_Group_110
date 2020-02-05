@@ -2,8 +2,8 @@
  
 #include "HX711.h"  // Library needed to communicate with HX711 https://github.com/bogde/HX711
  
-#define DOUT  6  // Arduino pin 6 connect to HX711 DOUT
-#define CLK  5  //  Arduino pin 5 connect to HX711 CLK
+#define DOUT  2  // Arduino pin 6 connect to HX711 DOUT
+#define CLK  3  //  Arduino pin 5 connect to HX711 CLK
  
 HX711 scale(DOUT, CLK);  // Init of library
 
