@@ -35,12 +35,13 @@
 
 #include "HX711.h" //This library can be obtained here http://librarymanager/All#Avia_HX711
 
-#define LOADCELL_DOUT_PIN 14 
-#define LOADCELL_SCK_PIN  15
+#define LOADCELL_DOUT_PIN A5 
+#define LOADCELL_SCK_PIN  A4
 
 HX711 scale;
 
-float calibration_factor = -7050; //-7050 worked for my 440lb max scale setup
+float calibration_factor =  -500000; //-7050 worked for my 440lb max scale setup
+long zero_factor;
 
 void setup() {
   Serial.begin(9600);
@@ -53,19 +54,20 @@ void setup() {
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
   scale.set_scale();
   scale.tare();	//Reset the scale to 0
-
   
-  long zero_factor = scale.read_average(); //Get a baseline reading
+  zero_factor = scale.read_average(); //Get a baseline reading
   Serial.print("Zero factor: "); //This can be used to remove the need to tare the scale. Useful in permanent scale projects.
   Serial.println(zero_factor);
+  
 }
 
 void loop() {
+  
   long reading = 0;
   scale.set_scale(calibration_factor); //Adjust to this calibration factor
 
   Serial.print("Reading: ");
-  reading = scale.read();
+  reading = scale.read()-zero_factor;
   //Serial.print(scale.get_units(), 1);
   Serial.print(reading );
   Serial.print(" lbs"); //Change this to kg and re-adjust the calibration factor if you follow SI units like a sane person

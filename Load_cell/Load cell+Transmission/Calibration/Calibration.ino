@@ -5,9 +5,9 @@
  Date: November 19th, 2014
  License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
  
- This example demonstrates powering down the breakout board. Our measurements peg the HX711 at 70nA when powered down
- and 15.8mA when powered up. The powered up current depends heavily on the type and number of load cells you
- are using.
+ Most scales require that there be no weight on the scale during power on. This sketch shows how to pre-load tare values
+ so that you don't have to clear the scale between power cycles. This is good if you have something on the scale 
+ all the time and need to reset the Arduino and not need to tare the scale.
  
  This example code uses bogde's excellent library: https://github.com/bogde/HX711
  bogde's library is released under a GNU GENERAL PUBLIC LICENSE
@@ -26,21 +26,26 @@
 
 #include "HX711.h" //This library can be obtained here http://librarymanager/All#Avia_HX711
 
-#define calibration_factor -7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
-#define zero_factor 8421804 //This large value is obtained using the SparkFun_HX711_Calibration sketch
+//#define calibration_factor -7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
+//#define zero_factor 125804 //This large value is obtained using the SparkFun_HX711_Calibration sketch
 
-#define LOADCELL_DOUT_PIN  2
-#define LOADCELL_SCK_PIN  3
+long calibration_factor =  -7050.0; //This value is obtained using the SparkFun_HX711_Calibration sketch
+long zero_factor =  125804; //This large value is obtained using the SparkFun_HX711_Calibration sketch
+
+#define LOADCELL_DOUT_PIN  A5
+#define LOADCELL_SCK_PIN  A4
 
 HX711 scale;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("HX711 power test");
+  Serial.println("Demo of zeroing out a scale from a known value");
 
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
   scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
   scale.set_offset(zero_factor); //Zero out the scale using a previously known zero_factor
+
+  Serial.println("Readings:");
 }
 
 void loop() {
@@ -48,11 +53,14 @@ void loop() {
   Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
   Serial.print(" lbs"); //You can change to kg but you'll need to change the calibration_factor
   Serial.println();
-
-  Serial.println("Powering down...");
-  scale.power_down(); //Put the HX711 in sleep mode
-  delay(5000);
-  Serial.println("Powering up...");
-  scale.power_up();
-  delay(5000);
+ 
+  if(Serial.available())
+  {
+    char temp = Serial.read();
+    if(temp == '+' || temp == 'a')
+      zero_factor += 1000;
+    else if(temp == '-' || temp == 'z')
+      zero_factor -= 1000;
+  }
+  delay(500);
 }
