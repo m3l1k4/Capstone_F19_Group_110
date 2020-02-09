@@ -8,6 +8,9 @@ This code can do the following:
 7 - Includes UI to select what to do
 
 For proper operation, code must be modified to set baud rate, serial port and  paths of address text file and data text file.
-Need to run start() only to enter UI. This can be running start once can let you start data tracking mode, view settings, change settings and add new devices. To remove devices, address text file must be modified. running start once will let you run any of these operations once, however we will stay in data tracking mode until kernel is interrupted, using KeyboardInterrupt or other.
+Need to run start() only to enter UI. This can be running start once can let you start data tracking mode, view settings, change settings
+and add new devices. To remove devices, address text file must be modified. running start once will let you run any of these operations
+once, however we will stay in data tracking mode until kernel is interrupted, using KeyboardInterrupt or other.
 
-The accompanying arduino serial traceiver code provides a template to ping the end device and receive a response. This is used to test the codes functionality.
+The accompanying arduino serial traceiver code provides a template to ping the end device and receive a response. This is used to test the
+codes functionality.
