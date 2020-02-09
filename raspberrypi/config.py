@@ -5,13 +5,12 @@ import copy
 import time
 import binascii as ba
 
-def initialize(baud, port): #this initializes the port and serial communication, both parameters must be strings
-    ser = serial.Serial() #initializing
-    ser.baudrate = int(baud) #default baud rate
-    ser.port = port #depends on port of RPi/computer
-    ser.timeout = 0 #sets timeout to 1 second
-    ser.open() #opens port
-    return
+#this initializes the port and serial communication, both parameters must be strings
+ser = serial.Serial() #initializing
+ser.baudrate = 9600 #default baud rate
+ser.port = 'COM4' #depends on port of RPi/computer
+ser.timeout = 0 #sets timeout to 1 second
+ser.open() #opens port
 
 #-------------------------------------------------------------------
 # below are used modules for local commands
@@ -99,27 +98,24 @@ def ping(addr, msg): #forms command to ping device of addr(str) with msg(str)
 
 #----------------------------------------------------------------------------
 def receipt(): #this returns address of sender and message sent
-    flag = 0   #message being received must start and end with !!!
     mask = 0
-    start_index = 0
-    end_index = 0
+    start_index = 1010
+    end_index = 1000
     string = copy.copy(ser.readline())
     a = ba.hexlify(string)
     b = a.decode('utf-8')
     c = [b[k:k+2] for k in range (0, len(b), 2)] #this splits list into blocks of 2
     for i in range(0, len(c) - 2):
-        if c[i] == '7e' and mask == 0:
+        if c[i] == '7e' and mask == 0: #this identifies first start bit
             addr_start_index = i + 4
             addr_end_index = i + 11
             mask = 1;
-        if c[i] == '21' and c[i+1] == '21' and c[i+2] == '21' and flag == 0: #extracts starting index of message
+        if c[i] == '21' and c[i+1] == '21' and c[i+2] == '21': #extracts starting index of message
             start_index = i + 3
-            flag = 1
-        elif c[i] == '21' and c[i+1] == '21' and c[i+2] == '21' and flag == 1: #extracts ending index of message
+        if c[i] == '3f' and c[i+1] == '3f' and c[i+2] == '3f': #extracts ending index of message
             end_index = i - 1
-            flag = 0
-    if start_index >= end_index:
-        return "Read Failed"
+    if start_index >= end_index or start_index == 1010 or end_index == 1000:
+        return "Serial Read Failed"
     else:
         d = [c[i] for i in range(start_index, end_index + 1)]
         e = ''.join(d)
@@ -145,15 +141,18 @@ def init_comm(): #this initiates communication
     print("Start of data tracking! Interrupt kernel to stop")
     try:
         while True:
-            counter = 0
             for i in range(0, len(addr_l)):
-                counter += 1
                 addr = addr_l[i]
-                msg = "Ping: " + str(counter)
+                msg = "code"
                 ser.write(ping(addr,msg)) #ping command sent to end device
                 time.sleep(3) #wait for data to be sent, processed and then returned
                 temp = receipt()
                 rec_addr = temp[0]
+                if len(rec_addr) != 16:
+                    print("Unable to ping: Device-" + str(i))
+                    break
+                else:
+                    print("Ping Successful for Device-" + str(i))
                 rec_msg = temp[1]
                 data = rec_addr + " , " + rec_msg + "\n"
                 data_file.write(data)
@@ -180,7 +179,7 @@ def add_new(): #This adds new devices to connected list
 # below are modules for viewing and changing settings
 #-------------------------------------------------------------------------
 def set_settings():
-    print("Choose from one of the following options: \n")
+    print("\nChoose from one of the following options: ")
     print("1: Change PAN ID")
     print("2: Change Scan channel")
     print("3: Set Coordinator Enable")
@@ -242,12 +241,12 @@ def view_setting(msb, lsb):
     d = ''
     cmd = set_command(msb, lsb, param) #send empty command
     ser.write(cmd)
-    time.sleep(1)
+    time.sleep(0.2)
     string = copy.copy(ser.readline())
     a = ba.hexlify(string)
     b = a.decode('utf-8')
     c = [b[k:k+2] for k in range (0, len(b), 2)] #this splits list into blocks of 2
-    if c[7] == '00':
+    if c[0] == '7e' and c[3] == '88' and c[7] == '00':
         for i in range (8 , len(c) - 1):
             d += c[i]
         return d
@@ -287,29 +286,25 @@ def start(): #this is the main program executable
     for addr in addr_file: #this shows existing devices
         print(addr)
     addr_file.close()
-    try:
-        while True:
-            print("Choose from one of the following options: \n")
-            print("1: Enter data tracking mode")
-            print("2: View local settings")
-            print("3: Change local settings")
-            print("4: Add new devices")
-            mode = input("Enter your selection: ")
-            if mode == '1':
-                init_comm()
-            elif mode == '2':
-                view_settings()
-
-            elif mode == '3':
-                settings()
-
-            elif mode == '4':
-                add_new()  
-            else:
-                print("Invalid selection!")
-    except KeyboardInterrupt:
-        ser.close()
-        return print("Terminated")
+    print("\nChoose from one of the following options:")
+    print("1: Enter data tracking mode")
+    print("2: View local settings")
+    print("3: Change local settings")
+    print("4: Add new devices")
+    mode = input("Enter your selection: ")
+    if mode == '1':
+        init_comm()
+    elif mode == '2':
+        view_settings()
+    elif mode == '3':
+        set_settings()
+    elif mode == '4':
+        add_new()
+    else:
+        print("Invalid selection!")
+    ser.close()
+    return print("Terminated")
+        
 ################################################################################
 ################################################################################
 ################################################################################
