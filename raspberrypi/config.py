@@ -115,7 +115,7 @@ def receipt(): #this returns address of sender and message sent
         if c[i] == '3f' and c[i+1] == '3f' and c[i+2] == '3f': #extracts ending index of message
             end_index = i - 1
     if start_index >= end_index or start_index == 1010 or end_index == 1000:
-        return "Serial Read Failed"
+        return print("Serial Read Failed")
     else:
         d = [c[i] for i in range(start_index, end_index + 1)]
         e = ''.join(d)
