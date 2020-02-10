@@ -189,7 +189,6 @@ def set_settings():
     mode = input("Enter your selection: ")
     print("For the following parameters, enter an even number of hex digits or otherwise specified.")
     if mode == "1":
-        a = view_setting('49', '44')
         param = input("Enter new PAN ID (2-16 hex): ")
         if len(param) % 2 == 0:
             cmd = set_command('49', '44', param)
