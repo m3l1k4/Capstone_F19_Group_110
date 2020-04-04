@@ -26,28 +26,47 @@
 
 #include "HX711.h" //This library can be obtained here http://librarymanager/All#Avia_HX711
 
-#define calibration_factor -7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
-#define zero_factor 5804 //This large value is obtained using the SparkFun_HX711_Calibration sketch
+#define calibration_factor 1208.50 //This value is obtained using the SparkFun_HX711_Calibration sketch
+//#define zero_factor 1500804 //This large value is obtained using the SparkFun_HX711_Calibration sketch
 
 #define LOADCELL_DOUT_PIN  A5
 #define LOADCELL_SCK_PIN  A4
+long zero_factor = 0;
 
 HX711 scale;
 
 void setup() {
-  Serial.begin(9600);
-  Serial.println("Demo of zeroing out a scale from a known value");
+  int i=0;
+  long reading = 0;
 
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+
+    scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+    Serial.begin(57000);
+    Serial.println("Demo of zeroing out a scale from a known value");
+
+
+    for (i = 0; i <= 1000; i++ ){
+       reading = reading + scale.read();
+       Serial.println (scale.read());
+       Serial.print("reading ");
+       Serial.print(reading);
+       Serial.println();
+    }
+       zero_factor = reading/20;
+       Serial.print("zero_factor: ");
+       Serial.print(zero_factor);
+       Serial.println();
+
   scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
   scale.set_offset(zero_factor); //Zero out the scale using a previously known zero_factor
 
-  Serial.println("Readings:");
 }
 
 void loop() {
-  Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
-  Serial.print(" lbs"); //You can change to kg but you'll need to change the calibration_factor
+  
+//Serial.print("Reading: ");
+  Serial.print(scale.read()-zero_factor);
+ // Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
+ // Serial.print(" g"); //You can change to kg but you'll need to change the calibration_factor
   Serial.println();
 }

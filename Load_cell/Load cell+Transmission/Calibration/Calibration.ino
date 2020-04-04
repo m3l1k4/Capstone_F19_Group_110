@@ -29,7 +29,7 @@
 //#define calibration_factor -7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
 //#define zero_factor 125804 //This large value is obtained using the SparkFun_HX711_Calibration sketch
 
-long calibration_factor =  -7050.0; //This value is obtained using the SparkFun_HX711_Calibration sketch
+//long calibration_factor =  2050.0; //This value is obtained using the SparkFun_HX711_Calibration sketch
 long zero_factor =  125804; //This large value is obtained using the SparkFun_HX711_Calibration sketch
 
 #define LOADCELL_DOUT_PIN  A5
@@ -37,30 +37,30 @@ long zero_factor =  125804; //This large value is obtained using the SparkFun_HX
 
 HX711 scale;
 
+
+/* Calibration sketch for HX711 */
+ 
+#include "HX711.h"  // Library needed to communicate with HX711 https://github.com/bogde/HX711
+//#include "HX711.cpp"  
+
+
 void setup() {
   Serial.begin(9600);
-  Serial.println("Demo of zeroing out a scale from a known value");
-
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
-  scale.set_offset(zero_factor); //Zero out the scale using a previously known zero_factor
-
-  Serial.println("Readings:");
+  scale.begin(LOADCELL_DOUT_PIN,LOADCELL_SCK_PIN);
+  void set_scale();  // Start scale 
+  void tare();       // Reset scale to zero
+  Serial.println("Begin Initialisation");// Print the scale factor to use
 }
-
-void loop() {
-  Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
-  Serial.print(" lbs"); //You can change to kg but you'll need to change the calibration_factor
-  Serial.println();
  
-  if(Serial.available())
-  {
-    char temp = Serial.read();
-    if(temp == '+' || temp == 'a')
-      zero_factor += 1000;
-    else if(temp == '-' || temp == 'z')
-      zero_factor -= 1000;
-  }
-  delay(500);
+void loop() {
+  //float get_units(20);
+  float current_weight;
+  current_weight = scale.get_units(10);  
+  
+  float scale_factor=(current_weight/204.8);  // divide the result by a known weight
+  Serial.print(F("scale factor = "));// Print the scale factor to use
+  Serial.println(scale_factor);
+  Serial.print(F("current weight = "));
+  Serial.println(current_weight);
+  delay(3000);
 }
